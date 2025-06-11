@@ -1,263 +1,492 @@
-/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
+/* General Body and Container Styles */
+body {
+    font-family: 'Lato', sans-serif; /* Default body font */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8; /* Light background for the page */
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
+.container {
+    max-width: 960px; /* Max width for content to prevent it from stretching too wide */
+    margin: 0 auto; /* Centers the container */
+    padding: 0 20px; /* Padding on the sides */
 }
 
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif; /* Elegant heading font */
+    color: #444;
+    margin-bottom: 20px;
 }
 
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+h1 {
+    font-size: 3.5em;
+    text-align: center;
+    color: #6A0573; 
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
+h2 {
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #6A0573; /* A nice accent color for section headings */
 }
 
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+h3 {
+    font-size: 1.8em;
+    color: #555;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
+/* Links */
+a {
+    color: #6A0573; /* Link color matching accent */
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
+a:hover {
+    color: #9C1F8C; /* Lighter on hover */
 }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
+.button {
+    display: inline-block;
+    background-color: #6A0573; /* Button background */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
 }
 
-/*
- * Extends the .sr-only class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.sr-only.focusable:active,
-.sr-only.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
+.button:hover {
+    background-color: #9C1F8C;
+    transform: translateY(-2px);
 }
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
 
-.invisible {
-  visibility: hidden;
+/* Header and Navigation */
+header {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; /* Makes header stick to top on scroll */
+    top: 0;
+    z-index: 1000; /* Ensures header is above other content */
 }
 
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: " ";
-  display: table;
+header .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #6A0573;
+    padding-top: 5px;
 }
 
-.clearfix::after {
-  clear: both;
+nav {
+    display: flex;
+    justify-content: center; /* Centers items (logo and ul) horizontally */
+    align-items: center; /* Centers items vertically (if they have different heights) */
+    flex-wrap: wrap; /* Allows items to wrap if screen is too narrow */
+    gap: 20px; /* Adds space between the logo and the nav list */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%; /* ADD THIS LINE: Ensures nav takes full width of its parent */
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
+nav ul li {
+    display: inline-block;
+    margin-left: 25px;
 }
 
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  /*
-   * Printing Tables:
-   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
-   */
-  thead {
-    display: table-header-group;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
+nav ul li a {
+    color: #555; /* Base text color for links */
+    font-weight: bold;
+    font-size: 1.05em;
+    padding: 8px 15px; /* Adjust padding to give it a button-like size */
+    display: inline-block; /* IMPORTANT: Allows padding and background to apply */
+    border-radius: 5px; /* Rounded corners for the button shape */
+    background-color: transparent; /* Start with no background color */
+    text-decoration: none; /* Ensure no underline on base state */
+    /* Keep position: relative; if you want for other uses, but not strictly needed here */
+    position: relative;
+    /* Add/adjust these transitions for smooth effects on all properties */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
+nav ul li a:hover {
+    background-color: #6A0573; /* Your accent color for the button background on hover */
+    color: white; /* Text color on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Section Styling */
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section:nth-of-type(even) { /* Alternate background for sections */
+    background-color: #f2f2f2;
+}
+
+/* Hero Section (Home) */
+.hero-section {
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover; /* Placeholder background image */
+    color: #444;
+    padding: 150px 20px; /* Adjust padding to control height */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4.5em;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.hero-content .subtitle {
+    font-size: 1.8em;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+}
+
+.hero-content .welcome-message {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Add to style.css */
+.countdown-timer {
+    display: flex; /* Arranges the units horizontally */
+    justify-content: center; /* Centers the units in the container */
+    gap: 30px; /* Space between each unit (e.g., between "weeks" and "days") */
+    margin-top: 20px;
+    margin-bottom: 30px;
+    /* Remove previous font-size, font-weight, text-shadow from here as they will be on inner elements */
+    font-size: initial; /* Reset default font size to ensure child elements scale properly */
+    font-weight: initial;
+    text-shadow: none; /* Remove if your hero background is light */
+    color: #444; /* Default text color for the labels, if not overridden */
+}
+
+.countdown-unit {
+    text-align: center; /* Centers the number and label within its unit */
+    min-width: 80px; /* Gives each unit a consistent width, adjust as needed */
+    flex-shrink: 0; /* Prevents units from shrinking too much on smaller screens if they need to */
+}
+
+.countdown-number {
+    font-family: 'Playfair Display', serif; /* Use your elegant heading font */
+    font-size: 3.5em; /* Large size for the numbers */
+    font-weight: bold;
+    display: block; /* Makes the number take its own line */
+    margin-bottom: 5px; /* Space between number and label */
+    color: #6A0573; /* Your accent color for the numbers */
+}
+
+.countdown-label {
+    font-family: 'Lato', sans-serif; /* Your body text font */
+    font-size: 1em; /* Smaller size for the words */
+    text-transform: uppercase; /* Makes the labels all caps */
+    letter-spacing: 1px; /* Adds a bit of space between letters */
+    display: block; /* Makes the label take its own line */
+    color: #555; /* A slightly softer color for the labels */
+}
+
+/* Responsive adjustments for Countdown Timer */
+@media (max-width: 768px) {
+    .countdown-timer {
+        gap: 20px; /* Reduce gap on smaller screens */
+    }
+    .countdown-unit {
+        min-width: unset; /* Allow units to be more flexible on smaller screens */
+    }
+    .countdown-number {
+        font-size: 2.8em; /* Adjust number size */
+    }
+    .countdown-label {
+        font-size: 0.9em; /* Adjust label size */
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-timer {
+        flex-direction: column; /* Stack units vertically on very small mobile screens */
+        gap: 15px; /* Adjust gap for vertical stacking */
+    }
+    .countdown-number {
+        font-size: 2em; /* Further reduce number size */
+    }
+    .countdown-label {
+        font-size: 0.8em; /* Further reduce label size */
+    }
+}
+
+/* The Couple Section - Gallery Styles */
+.gallery-container {
+    display: flex; /* Uses Flexbox to arrange items */
+    flex-wrap: wrap; /* Allows items to wrap to the next row if needed */
+    justify-content: center; /* Centers items horizontally within the container */
+    gap: 20px; /* Creates space between each gallery item */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 900px; /* Optional: Limits the overall width of the gallery */
+    margin-left: auto; /* Centers the gallery-container itself */
+    margin-right: auto;
+}
+
+.gallery-item {
+    width: calc(33.333% - 20px); /* Calculates width for 3 columns, accounting for gap */
+    flex-grow: 1; /* Allows items to grow to fill space */
+    position: relative; /* Needed for any potential overlays or complex effects */
+    overflow: hidden; /* Hides parts of the image that might go outside rounded corners or during scale */
+    border-radius: 8px; /* Adds rounded corners to each photo container */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.gallery-item img {
+    width: 100%; /* Makes the image fill the width of its container */
+    height: 250px; /* Fixed height for consistent image size in the grid, adjust as needed */
+    object-fit: cover; /* Crops the image to fill the given height/width without distorting */
+    display: block; /* Removes any extra space below the image */
+    transition: transform 0.3s ease; /* Smooth transition for the image zoom effect */
+}
+
+/* Hover effect for the gallery items */
+.gallery-item:hover {
+    transform: translateY(-5px); /* Lifts the item slightly on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Makes the shadow more prominent on hover */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Slightly zooms the image on hover */
+}
+
+/* Responsive Adjustments for Gallery */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: calc(50% - 20px); /* Changes to 2 columns on tablets */
+        height: 200px; /* Adjust height for smaller screens */
+    }
+    .gallery-item img {
+        height: 100%; /* Ensure image fills the adjusted height */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        width: calc(100% - 20px); /* Changes to 1 column on mobile phones */
+        height: 200px; /* Keep height consistent */
+    }
+}
+
+/* Event Cards */
+.event-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.event-card h3 {
+    margin-top: 0;
+    color: #6A0573;
+}
+
+.event-card p strong {
+    color: #444;
+}
+
+/* RSVP Section specific styling */
+.rsvp-section-custom p {
+    max-width: 700px; /* Ensure paragraphs don't stretch too wide */
+    margin: 0 auto 20px auto;
+}
+
+.rsvp-section-custom strong {
+    color: #6A0573; /* Match accent color */
+}
+
+.rsvp-button-custom {
+    background-color: #C07F00; /* A distinct green for the RSVP button */
+    padding: 18px 40px;
+    font-size: 1.25em;
+}
+
+.rsvp-button-custom:hover {
+    background-color: #9C1F8C;
+    color: #fff;
+}
+
+.small-text {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 25px;
+}
+
+/* Registry List */
+#registry ul {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+}
+#registry ul li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+#registry ul li a {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    /* Layout and positioning */
+    display: flex; /* Use flexbox to center the SVG icon */
+    align-items: center; /* Vertically center icon */
+    justify-content: center; /* Horizontally center icon */
+    position: fixed; /* Makes the button stay in place when scrolling */
+    bottom: 30px; /* Distance from the bottom of the viewport */
+    right: 30px; /* Distance from the right of the viewport */
+    z-index: 999; /* Ensures the button is on top of other content */
+
+    /* Appearance */
+    background-color: #6A0573; /* Your primary purple color for the button */
+    color: white; /* Text/icon color */
+    width: 50px; /* Width of the button */
+    height: 50px; /* Height of the button (makes it square) */
+    border-radius: 50%; /* Makes the button perfectly circular */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Soft shadow for depth */
+    cursor: pointer; /* Indicates it's clickable */
+    text-decoration: none; /* Removes default underline for links */
+
+    /* Initial hidden state and transition */
+    opacity: 0; /* Starts completely transparent */
+    visibility: hidden; /* Ensures it's not clickable when invisible */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease; /* Smooth transition for show/hide and hover */
+}
+
+#scrollToTopBtn svg {
+    fill: white; /* Colors the SVG arrow icon white */
+    width: 24px; /* Size of the SVG icon */
+    height: 24px;
+}
+
+/* Class added by JavaScript when button should be visible */
+#scrollToTopBtn.show {
+    opacity: 0.8; /* Makes the button fully visible */
+    visibility: visible; /* Makes it clickable */
+}
+
+/* Hover effect for the button */
+#scrollToTopBtn:hover {
+    background-color: #9C1F8C; /* Lighter purple on hover */
+    transform: translateY(-3px); /* Subtle lift effect */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3); /* Slightly more prominent shadow on hover */
+    opacity: 1;
+}
+
+/* Responsive Design (Media Queries) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stacks logo and nav list vertically */
+        gap: 10px; /* Adjust gap for vertical stacking */
+    }
+    /* MODIFY THIS header .logo RULE WITHIN THE MEDIA QUERY */
+    header .logo {
+        margin-bottom: 10px; /* Keep for spacing if desired */
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .hero-content h1 {
+        font-size: 3.5em;
+    }
+    .hero-content .subtitle {
+        font-size: 1.4em;
+    }
+
+    header .logo {
+        float: none;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    nav ul {
+        float: none;
+        text-align: center;
+    }
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    .event-card, #registry ul {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content .subtitle {
+        font-size: 1.2em;
+    }
+    .button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    nav ul li {
+        margin: 0 5px;
+    }
+    nav ul li a {
+        font-size: 0.9em;
+    }
+}
