@@ -345,26 +345,6 @@ nav ul li a:hover {
     margin-top: 25px;
 }
 
-/* Registry List */
-#registry ul {
-    list-style: none;
-    padding: 0;
-    max-width: 500px;
-    margin: 20px auto;
-    text-align: left;
-}
-#registry ul li {
-    background-color: #fff;
-    margin-bottom: 10px;
-    padding: 15px 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-#registry ul li a {
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
 /* Footer */
 footer {
     background-color: #333;
